@@ -1,0 +1,134 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Calculadora
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // declaracion de variables //
+            double c, a, b = 0;
+            int elec=0;
+            int S=0,m=0,d=0,r=0, e = 0;
+            // mientras no se escoja salir el programa continuara su ejecucion//
+            while (elec != 6)
+            {
+                // limpia la pantalla cada vez que se realice una accion//
+                Console.Clear();
+                //se imprime en pantalla el menu //
+                Console.WriteLine("Calculadora Grupo #1");
+                Console.WriteLine("1. Suma");
+                Console.WriteLine("2. Resta");
+                Console.WriteLine("3. Multiplicacion");
+                Console.WriteLine("4. Division");
+                Console.WriteLine("5. Registro de operaciones");
+                Console.WriteLine("6. Salir");
+                // se selecciona una operacion //
+                Console.WriteLine("Seleccione una operacion");
+                // hace try catch para la eleccion, si encuentra un error en esta imprime en pantalla//
+                // cual es el error que se cometio //
+                try
+                {
+                    elec = Convert.ToInt16(Console.ReadLine());
+                }
+                catch (Exception ex)
+                {
+                    e = e + 1;
+                    // ex.message es el mensaje del error encontrado//
+                    Console.WriteLine(ex.Message);
+                    Console.ReadKey();
+                    continue;
+
+                }
+                // si la eleccion es salida el programa termina//
+                if (elec == 6)
+                {
+                    // este comando termina el programa es decir lo obliga a salir del while//
+                    continue;
+
+                }
+                // un simple switch//
+                switch (elec)
+                {
+                    case 1:
+                        S = S + 1;
+
+                        Console.WriteLine("Ingrese el primer numero");
+                        // se convierte la lectura del teclado a un valor entero y se toman las entradas de los numeros //
+                        a = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Ingrese el segundo numero");
+                        b = int.Parse(Console.ReadLine());
+                        
+                        c = a + b;
+                        Console.WriteLine("El resultado es:");
+                        Console.WriteLine(c);
+                        break;
+                    case 2:
+                        r = r + 1;
+
+                        Console.WriteLine("Ingrese el primer numero");
+                        // se convierte la lectura del teclado a un valor entero y se toman las entradas de los numeros //
+                        a = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Ingrese el segundo numero");
+                        b = int.Parse(Console.ReadLine());
+
+                        c = a - b;
+                        Console.WriteLine("El resultado es:");
+                        Console.WriteLine(c);
+                        break;
+                    case 3:
+                        m = m + 1;
+
+                        Console.WriteLine("Ingrese el primer numero");
+                        // se convierte la lectura del teclado a un valor entero y se toman las entradas de los numeros //
+                        a = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Ingrese el segundo numero");
+                        b = int.Parse(Console.ReadLine());
+
+                        c = a * b;
+                        Console.WriteLine("El resultado es:");
+                        Console.WriteLine(c);
+                        break;
+                    case 4:
+                        d = d + 1;
+
+                        Console.WriteLine("Ingrese el primer numero");
+                        // se convierte la lectura del teclado a un valor entero y se toman las entradas de los numeros //
+                        a = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Ingrese el segundo numero");
+                        b = int.Parse(Console.ReadLine());
+
+                        if (b <= 0)
+                        {
+                            Console.WriteLine("No se puede dividir un numero entre cero el resultado es infinito");
+                        }
+                        else
+                        {
+                            c = a / b;
+                            Console.WriteLine("El resultado es:");
+                            Console.WriteLine(c);
+                        }
+                        break;
+                    case 5:
+                        Console.WriteLine("Se ha utilizado le opcion suma un total de:");
+                        Console.WriteLine(S);
+                        Console.WriteLine("Se ha utilizado la opcion resta un total de: ");
+                        Console.WriteLine(r);
+                        Console.WriteLine("Se ha utilizado la opcion multiplicar un total de:");
+                        Console.WriteLine(m);
+                        Console.WriteLine("Se ha utilizado la opcion division un total de: ");
+                        Console.WriteLine(d);
+                        Console.WriteLine("Se ha cometido un error un total de: ");
+                        Console.WriteLine(e);
+                        break;
+                }
+                // se tiene que colocar para que muestre el ultimo mensaje y no se ejecute el while de un solo//
+                Console.ReadKey();
+            }
+        }
+    }
+}
