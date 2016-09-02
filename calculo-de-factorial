@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Factorial
+{
+    class Program
+    {
+        public static int factorial(int x, int n)
+        {
+            if (n > 0)
+            {
+                x = factorial(x, n - 1);
+                x = x * n;
+            }
+            else
+            {
+                x = 1;
+            }
+            return x;
+        }
+
+
+        static void Main(string[] args)
+
+        {
+            int x = 1;
+            int ele = 0;
+            while (ele != 2)
+            {
+
+                Console.Clear();
+                Console.WriteLine("Seleccione una opcion");
+                Console.WriteLine("1. ingresar al programa");
+                Console.WriteLine("2. salir");
+                ele = Convert.ToInt16(Console.ReadLine());
+
+                switch (ele)
+                {
+                    case 1:
+
+                        Console.WriteLine("Ingrese un numero ");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        x = factorial(x, n);
+                        Console.WriteLine(x);
+                        Console.ReadLine();
+                        break;
+                    case 2:
+                        break;
+                }
+            }
+        }
+    }
+}
